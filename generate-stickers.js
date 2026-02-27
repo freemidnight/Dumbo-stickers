@@ -16,7 +16,7 @@ function scanDir(dir) {
         stickers.push(...scanDir(fullPath));
       }
     } else if (EXTENSIONS.includes(path.extname(entry.name).toLowerCase())) {
-      stickers.push(entry.name);
+      stickers.push(path.relative(ROOT_DIR, fullPath).split(path.sep).join('/'));
     }
   }
   return stickers;
